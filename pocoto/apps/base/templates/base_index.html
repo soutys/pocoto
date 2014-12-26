@@ -1,0 +1,2 @@
+msg: {{ msg }}<br />
+distance: {% if dist %}<strong>{{ dist.0|floatformat:3 }}</strong> km / <strong>{{ dist.1|floatformat:3 }}</strong> mi{% else %}(unknown){% endif %}
