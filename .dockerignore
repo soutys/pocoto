@@ -1,0 +1,5 @@
+.venv/
+*.ya?ml
+.dockerignore
+*.md
+Dockerfile

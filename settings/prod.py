@@ -3,9 +3,6 @@
 '''Production configuration
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
-
 SECRET_KEY = '=fyy+hkd!f^1&v1%n7d^y6%ap-x1yrzkde2)cr)_cul-!cd67$'
 
 DEBUG = False

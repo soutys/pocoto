@@ -3,8 +3,6 @@
 '''Common configuration
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 import os
 
 from django.utils.translation import ugettext_lazy as _
@@ -42,19 +40,21 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
-TEMPLATE_DIRS = (
-    BASE_DIR + '/templates/',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-    'django.core.context_processors.csrf',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'pocoto', 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+                #'django.template.context_processors.csrf',
+            ],
+        },
+    },
+]
 
 ROOT_URLCONF = 'pocoto.urls'
 APPEND_SLASH = False

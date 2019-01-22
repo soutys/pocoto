@@ -3,12 +3,12 @@
 '''Main routing module
 '''
 
-from django.conf.urls import patterns, include, url
+from django.urls import include, path
 
 
-urlpatterns = patterns('',
-    url(r'', include('pocoto.apps.base.urls', namespace='base')),
-)
+urlpatterns = [
+    path(r'', include(('pocoto.apps.base.urls', 'apps_base'))),
+]
 
 
 # vim: ts=4:sw=4:et:fdm=indent:ff=unix

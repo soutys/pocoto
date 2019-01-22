@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 
-FROM python:3.4
+FROM python:3.6
 MAINTAINER soutys
 ADD . /pocoto
 WORKDIR /pocoto
 ENV SERVICE_CONFIGURATION dev
 RUN pip install -r ./requirements/dev.txt
 RUN tox -c ./tox.ini
-RUN python ./manage.py validate
+RUN python ./manage.py check
 RUN ./py_cleanup.sh
 
 

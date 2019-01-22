@@ -13,18 +13,17 @@ django (code) + tests (tox + unittest + coverage + flakes) + docker (build/fig s
 	$ ./py_cleanup.sh
 
 
-# Build image container (as root)
+# Build and start container
 
-	# fig build
+	$ docker-compose up --build
 
 
-# Start container (as root)
+# Test
 
-	# fig up
+	$ curl -v 'http://127.0.0.1:8080/?a=0,0&b=1,1'
 
 
 # Look into container (as root)
 
 	# docker ps
-	# docker exec -i -t <container_ID> /bin/bash
-
+	# docker exec -i -t pocoto /bin/bash

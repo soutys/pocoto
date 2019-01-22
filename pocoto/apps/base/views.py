@@ -3,14 +3,9 @@
 '''Base views module
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 import logging
 
-#from django.conf import settings
-from django.core.context_processors import csrf
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 
 from pocoto.libs.helper import (
@@ -40,9 +35,7 @@ def index(request):
         'msg': msg,
         'dist': dist,
     }
-    tpl_vars.update(csrf(request))
-    return render_to_response('base_index.html', dictionary=tpl_vars,
-        context_instance=RequestContext(request))
+    return render(request, 'base_index.html', tpl_vars)
 
 
 def csrf_failure(request, reason=''):

@@ -3,28 +3,19 @@
 '''Helper module
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 from geopy.distance import vincenty
-try:
-    import simplejson as json
-except ImportError: # pragma: no cover
-    import json
 
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 
-class JSONResponse(HttpResponse):
+class JSONResponse(JsonResponse):
     '''JSON view class
     '''
-    def __init__(self, response=None, status=200):
-        response = response or {}
-        super(JSONResponse, self).__init__(
-            content=json.dumps(response),
-            content_type='application/json; charset=utf-8',
-            status=status
-        )
-
+    def __init__(self, data, **kwargs):
+        kwargs.setdefault('content_type', 'application/json; charset=utf-8')
+        super().__init__(
+            data, safe=False, json_dumps_params=dict(
+                ensure_ascii=False, indent=None, separators=(',', ':')), **kwargs)
 
 
 def get_lat_lon(lat_lon_str):

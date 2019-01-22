@@ -3,8 +3,6 @@
 '''Unit tests module
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 import unittest
 
 try:
@@ -61,8 +59,8 @@ class TestHelper(unittest.TestCase):
     def test_geo_dist_diff(self):
         point_a = (41.49008, -71.312796)
         point_b = (41.499498, -81.695391)
-        dist = geo_dist(point_a, point_b)
-        self.assertEqual(dist, (866.4554329011002, 538.3904451566326))
+        met, mil = map(int, geo_dist(point_a, point_b))
+        self.assertEqual((met, mil), (866, 538))
 
 
     def test_geo_dist_same(self):

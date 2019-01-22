@@ -3,8 +3,6 @@
 '''Test runner module
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 from django.test.runner import DiscoverRunner
 
 

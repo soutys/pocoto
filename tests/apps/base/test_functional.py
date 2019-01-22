@@ -3,8 +3,6 @@
 '''Functional tests module
 '''
 
-from __future__ import with_statement, division, absolute_import, print_function
-
 import unittest
 
 try:
@@ -12,7 +10,7 @@ try:
 except ImportError: # pragma: no cover
     import json
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import HttpResponse
 from django.template.defaultfilters import floatformat
 from django.test import (Client, RequestFactory)
@@ -28,7 +26,7 @@ class TestViews(unittest.TestCase):
 
 
     def test_index_empty_or_bad(self):
-        url = reverse('base:index')
+        url = reverse('apps_base:index')
         resp = Client().get(url)
         self.assertEqual(resp.status_code, 200)
         self.assertIn('msg: ERR', resp.content.decode('utf-8'))
@@ -39,7 +37,7 @@ class TestViews(unittest.TestCase):
         point_b = (41.499498, -81.695391)
         dist_tup = geo_dist(point_a, point_b)
 
-        url = reverse('base:index') + '?a=%s&b=%s' % (
+        url = reverse('apps_base:index') + '?a=%s&b=%s' % (
             ','.join([str(item) for item in point_a]),
             ','.join([str(item) for item in point_b]),
         )

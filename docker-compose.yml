@@ -1,0 +1,17 @@
+#!/usr/bin/env docker-compose
+# -*- coding: utf-8 -*-
+
+version: '3.5'
+
+
+services:
+  pocoto:
+    image: pocoto:latest
+    build: .
+    container_name: pocoto
+    ports:
+        - "8080:8080"
+    command: python /pocoto/manage.py runserver 0.0.0.0:8080
+    restart: always
+
+# vim: ts=4:sw=4:et:fdm=indent:ff=unix
