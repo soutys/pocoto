@@ -5,7 +5,7 @@
 
 import os
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _u
 
 
 DEBUG = False
@@ -70,8 +70,8 @@ USE_TZ = False
 FIRST_DAY_OF_WEEK = 1
 
 LANGUAGES = (
-    ('pl', _('Polish')),
-    ('en', _('English')),
+    ('pl', _u('Polish')),
+    ('en', _u('English')),
 )
 
 STATIC_URL = '/static/'

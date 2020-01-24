@@ -6,7 +6,7 @@
 import os
 import types
 import unittest
-from imp import reload
+from importlib import reload
 
 from django.core.handlers.wsgi import WSGIHandler
 
