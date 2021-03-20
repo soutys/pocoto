@@ -1,11 +1,5 @@
 -r common.txt
-#Sphinx
 coverage
-#fig
-#pylint
-#pylint-django
 pytest
-#pytest-cov
 pytest-flakes
-#pytest-pep8
 tox

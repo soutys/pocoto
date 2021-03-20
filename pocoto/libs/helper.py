@@ -3,7 +3,7 @@
 '''Helper module
 '''
 
-from geopy.distance import vincenty
+from geopy import distance
 
 from django.http import JsonResponse
 
@@ -37,14 +37,14 @@ def get_lat_lon(lat_lon_str):
 
 def geo_dist(point_a, point_b):
     '''Calculates geodesic distance in kilometres and miles between two points
-        using the T. Vincenty distance formula and WGS-84 ellipsoid
+        using WGS-84 ellipsoid
 
     >>> point_a = (41.49008, -71.312796)
     >>> point_b = (41.499498, -81.695391)
     >>> print(geo_dist(point_a, point_b))
     (866.4554329011002, 538.3904451566326)
     '''
-    dist = vincenty(point_a, point_b, ellipsoid='WGS-84')
+    dist = distance.geodesic(point_a, point_b, ellipsoid='WGS-84')
     return (dist.meters / 1000.0, dist.miles)
 
 
